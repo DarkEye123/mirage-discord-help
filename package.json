@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/node": "^16.11.26",
-    "@types/react": "^17.0.44",
-    "@types/react-dom": "^17.0.15",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-scripts": "5.0.0",
+    "@types/node": "^14.0.27",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "graphql": "^16.3.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-query": "^3.34.19",
+    "react-scripts": "^3.4.0",
     "typescript": "^4.6.3"
   },
   "scripts": {
@@ -16,10 +18,8 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
+  "overrides": {
+    "typescript": "^4.6.3"
   },
   "browserslist": {
     "production": [
@@ -32,5 +32,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^6.1.2",
+    "@miragejs/graphql": "^0.1.13",
+    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "@typescript-eslint/parser": "^5.10.2",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "graphql-tag": "^2.12.6",
+    "miragejs": "^0.1.43"
   }
 }

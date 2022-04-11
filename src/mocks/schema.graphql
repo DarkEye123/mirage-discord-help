@@ -1,0 +1,83 @@
+"""
+The ISO 8601 date format of the time that this resource was edited.
+"""
+scalar Date
+scalar Money
+
+interface Node {
+  id: ID!
+}
+
+enum OfferTargetType {
+  all
+  products
+  collections
+}
+
+enum OfferOrderType {
+  lastEdited
+  status
+  createdOn
+}
+
+enum OfferStatus {
+  draft
+  active
+  deleted
+}
+
+enum OfferType {
+  service
+  product
+  smart
+  sameProduct
+}
+
+interface Offer implements Node {
+  id: ID!
+  type: OfferType!
+  name: String!
+  status: OfferStatus!
+  imageUrl: String!
+  updated: Date!
+}
+
+type ServiceOffer implements Offer & Node {
+  id: ID!
+  type: OfferType!
+  name: String!
+  status: OfferStatus!
+  imageUrl: String!
+  updated: Date!
+}
+
+type ProductOffer implements Offer & Node {
+  id: ID!
+  type: OfferType!
+  name: String!
+  status: OfferStatus!
+  imageUrl: String!
+  updated: Date!
+}
+
+type MetaInfo {
+  totalCount: Int!
+}
+
+type OfferList {
+  meta: MetaInfo!
+  offers: [Offer!]!
+}
+
+type Query {
+  offers(
+    orderBy: OfferOrderType
+    status: OfferStatus
+    limit: Int
+    offset: Int
+  ): OfferList
+}
+
+schema {
+  query: Query
+}

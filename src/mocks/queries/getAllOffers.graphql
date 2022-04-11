@@ -1,0 +1,19 @@
+query getAllOffers(
+  $orderBy: OfferOrderType
+  $status: OfferStatus
+  $limit: Int
+  $offset: Int
+) {
+  offers(orderBy: $orderBy, status: $status, limit: $limit, offset: $offset) {
+    meta {
+      totalCount
+    }
+    offers {
+      id
+      type
+      name
+      status
+      imageUrl
+    }
+  }
+}
